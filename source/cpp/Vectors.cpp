@@ -47,7 +47,7 @@ int angular (double cos)
     double t2 = (3.14159265);
 
     int deg = int(rad / t2);
-
+    std::cout << deg;
     return deg;
 
 }

@@ -7,7 +7,7 @@ bool is_matrix(const matrix& mat)
         return false;
 
 
-    auto out = std::count_if(mat.begin(), mat.end(), [=](const std::vector<int> & vec) {
+    auto out = std::count_if(mat.begin(), mat.end(), [=](const std::vector<double> & vec) {
         
         return vec.size() == mat[0].size();
 
@@ -43,7 +43,7 @@ std::optional<matrix> sum_matrix(const matrix& mat1, const matrix& mat2) noexcep
     if (!is_matrix_equal_size(mat1, mat2))
         return std::nullopt;
 
-    matrix out(mat1.size(), std::vector<int>(mat1[0].size()));
+    matrix out(mat1.size(), std::vector<double>(mat1[0].size()));
 
     for (int i = 0; i < mat1.size(); i++)
     {
@@ -63,7 +63,7 @@ std::optional<matrix> subtraction_matrix(const matrix& mat1, const matrix& mat2)
     if (!is_matrix_equal_size(mat1, mat2))
         return std::nullopt;
 
-    matrix out(mat1.size(), std::vector<int>(mat1[0].size()));
+    matrix out(mat1.size(), std::vector<double>(mat1[0].size()));
 
     for (int i = 0; i < mat1.size(); i++)
     {
@@ -85,7 +85,7 @@ void transport_matrix(matrix& mat) noexcept
     if (!mat.size())
         return;
 
-    matrix data(mat[0].size(), std::vector<int>(mat.size()));
+    matrix data(mat[0].size(), std::vector<double>(mat.size()));
 
     for (int i = 0; i < mat.size(); i++)
     {
@@ -112,7 +112,7 @@ void multiply_matrix_scalar(matrix& mat, int scalar) noexcept
 //5
 std::optional<matrix> multiply_matrix(const matrix& mat1, const  matrix& mat2) noexcept
 {
-    matrix mat_out(mat1.size(),std::vector<int>(mat1[0].size()));
+    matrix mat_out(mat1.size(),std::vector<double>(mat1[0].size()));
 
     if (!is_matrix(mat1) || !is_matrix(mat2))
         return std::nullopt;
@@ -144,7 +144,7 @@ std::optional<matrix> multiply_matrix(const matrix& mat1, const  matrix& mat2) n
 }
 
 //6
- std::vector<int> & get_row_matrix(matrix& mat, int row) noexcept
+ std::vector<double> & get_row_matrix(matrix& mat, int row) noexcept
 {
     try {
         return mat.at(row);
@@ -156,7 +156,7 @@ std::optional<matrix> multiply_matrix(const matrix& mat1, const  matrix& mat2) n
 }
 
 //7
- std::vector<int> get_column_matrix(matrix & mat, int column) noexcept
+ std::vector<double> get_column_matrix(matrix & mat, int column) noexcept
 {
     transport_matrix(mat);
 
@@ -181,28 +181,28 @@ void replace_rows_matrix(matrix& mat, int row1, int row2) noexcept
 }
 
 //9
-void multiply_row_scalar(matrix& mat, int row, int scalar)
+void multiply_row_scalar(matrix& mat, int row, double scalar)
 {
     auto & vec = get_row_matrix(mat, row);
 
-    std::for_each(vec.begin(), vec.end(), [=](int& elem) {elem *= scalar; });
+    std::for_each(vec.begin(), vec.end(), [=](double & elem) {elem *= scalar; });
 }
 
 //10
-std::vector<int> sum_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar)
+std::vector<double> sum_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar)
 {
 
     //extra safe
     if (!is_matrix(mat1) || !is_matrix(mat2))
-        return std::vector<int>{};
+        return std::vector<double>{};
 
     if (!mat1.size() || !mat2.size())
-        return std::vector<int>{};
+        return std::vector<double>{};
 
     if (mat1[0].size() != mat2[0].size())
-        return std::vector<int>{};
+        return std::vector<double>{};
 
-    std::vector<int> out;
+    std::vector<double> out;
 
     for (int i = 0; i < mat1[row1].size(); i++)
     {
@@ -212,20 +212,20 @@ std::vector<int> sum_rows_scalar(const matrix& mat1, const matrix& mat2, int row
     return out;
 }
 
-std::vector<int> subtraction_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar)
+std::vector<double> subtraction_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar)
 {
 
     //extra safe
     if (!is_matrix(mat1) || !is_matrix(mat2))
-        return std::vector<int>{};
+        return std::vector<double>{};
 
     if (!mat1.size() || !mat2.size())
-        return std::vector<int>{};
+        return std::vector<double>{};
 
     if (mat1[0].size() != mat2[0].size())
-        return std::vector<int>{};
+        return std::vector<double>{};
 
-    std::vector<int> out;
+    std::vector<double> out;
 
     for (int i = 0; i < mat1[row1].size(); i++)
     {

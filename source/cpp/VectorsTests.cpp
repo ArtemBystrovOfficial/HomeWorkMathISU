@@ -77,7 +77,7 @@ TEST(isEqualOrientation, test_result)
 TEST(isUnEqualOrientation, test_result)
 {
     //A
-    Vec a = { 0,-1 }, b = { 0,1 };
+    Vec a = { 1,1 }, b = { -1,-1 };
     //A
     auto out = isUnEqualOrientation(a, b);
     //A

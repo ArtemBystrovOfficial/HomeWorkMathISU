@@ -27,7 +27,7 @@ bool operator==(const matrix& mat1, const matrix& mat2)
     return true;
 }
 
-bool operator==(const std::vector<int> & vec1,const std::vector<int> & vec2)
+bool operator==(const std::vector<double> & vec1,const std::vector<double> & vec2)
 {
     if (vec1.size() != vec2.size())
         return false;
@@ -217,7 +217,7 @@ TEST(get_row_matrix, test_result)
 
     auto & row = get_row_matrix(mat, 1);
 
-    bool is = row == std::vector<int>{ 7, 2 };
+    bool is = row == std::vector<double>{ 7, 2 };
 
     //A
 
@@ -235,9 +235,9 @@ TEST(get_column_matrix, test_result)
 
     //A
 
-    auto& row = get_column_matrix(mat, 0);
+    auto row = get_column_matrix(mat, 0);
 
-    bool is = row == std::vector<int>{ 1, 7, 5 };
+    bool is = row == std::vector<double>{ 1, 7, 5 };
 
     //A
 
@@ -305,7 +305,7 @@ TEST(sum_rows_scalar, test_result)
 
     auto vec = sum_rows_scalar(mat1, mat2, 1, 2, 4);
 
-    bool is = vec == std::vector<int>{48, 16};
+    bool is = vec == std::vector<double>{48, 16};
 
     //A
 
@@ -329,7 +329,7 @@ TEST(subtraction_rows_scalar, test_result)
 
     auto vec = subtraction_rows_scalar(mat1, mat2, 1, 2, 4);
 
-    bool is = vec == std::vector<int>{8, 0};
+    bool is = vec == std::vector<double>{8, 0};
 
     //A
 

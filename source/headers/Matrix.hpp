@@ -7,7 +7,7 @@
 
 //!!!standart 17
 
-using matrix = std::vector < std::vector <int> >;
+using matrix = std::vector < std::vector < double > >;
 
 bool is_matrix(const matrix& mat);
 
@@ -30,18 +30,18 @@ void multiply_matrix_scalar(matrix& mat, int scalar) noexcept;
 std::optional<matrix> multiply_matrix(const matrix& mat1, const  matrix& mat2) noexcept;
 
 //6
- std::vector<int> &  get_row_matrix(matrix& mat, int row) noexcept;
+ std::vector<double> &  get_row_matrix(matrix& mat, int row) noexcept;
 
 //7
- std::vector<int>  get_column_matrix(matrix & mat, int column) noexcept;
+ std::vector<double>  get_column_matrix(matrix & mat, int column) noexcept;
 
 //8
 void replace_rows_matrix(matrix& mat, int row1, int row2) noexcept;
 
 //9
-void multiply_row_scalar(matrix& mat, int row, int scalar);
+void multiply_row_scalar(matrix& mat, int row, double scalar);
 
 //10
-std::vector<int> sum_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar);
+std::vector<double> sum_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar);
 
-std::vector<int> subtraction_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar);
+std::vector<double> subtraction_rows_scalar(const matrix& mat1, const matrix& mat2, int row1, int row2, int scalar);

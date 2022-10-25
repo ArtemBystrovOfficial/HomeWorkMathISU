@@ -16,11 +16,19 @@ add_executable(vectors_tests
 add_executable(matrix_tests 
                 ${PROJECT_CPP_SOURCE}/MatrixTests.cpp 
                 ${PROJECT_CPP_SOURCE}/Matrix.cpp)
+add_executable(gauss_tests 
+                ${PROJECT_CPP_SOURCE}/Matrix.cpp                
+                ${PROJECT_CPP_SOURCE}/GaussTests.cpp 
+                ${PROJECT_CPP_SOURCE}/Gauss.cpp)
 
 target_link_libraries( vectors_tests PRIVATE
                     gtest gtest_main
                     gmock gmock_main )
 
 target_link_libraries( matrix_tests PRIVATE
+                    gtest gtest_main
+                    gmock gmock_main )
+                
+target_link_libraries( gauss_tests PRIVATE
                     gtest gtest_main
                     gmock gmock_main )
