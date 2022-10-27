@@ -3,24 +3,31 @@
 
 #include <vector>
 #include <map>
+#include <iostream>
 
-std::vector<double> MethodGauss(matrix mat,std::vector<double> con)
+matrix MethodGauss(matrix mat,matrix con)
 {
 
     std::map <int, bool> usebles;
 
     if (!mat.size())
-        return std::vector<double>{};
+        return matrix{};
+
+    if (!con.size())
+        return matrix{};    
 
     // only matrix n x n, other return answers with x1,x2...
     if(mat.size()!=mat[0].size())
-        return std::vector<double>{};
+        return matrix{};
 
-    for(int i=0;i<mat.size();i++)
+    for(int j=0;j<mat.size();j++)
     {
-        mat[i].push_back(con[i]);
+        for(int i=0;i<con[0].size();i++)
+        {
+            mat[j].push_back(con[j][i]);
+        }
     }
-    
+
     int lvl = 0;
 
     while (usebles.size()!=mat.size())
@@ -64,5 +71,15 @@ std::vector<double> MethodGauss(matrix mat,std::vector<double> con)
         lvl++;
     }
 
-    return get_column_matrix(mat,mat[0].size()-1);
+    matrix out(con.size(),std::vector<double>(con[0].size()));
+
+    for(int i=0;i<con[0].size();i++)
+    {
+        auto vec = get_column_matrix(mat,mat.size()+i);
+
+        for(int j = 0 ; j < vec.size();j++)
+             out[j][i] = vec[j];
+    }
+
+    return out;
 }

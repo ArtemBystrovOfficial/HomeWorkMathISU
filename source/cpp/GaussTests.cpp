@@ -24,14 +24,14 @@ TEST(gauss,test_result1)
                   {2, -4, 5},
                   {-3, 11, 1}};
 
-    std::vector <double> vec{-23, -13, 16};
-
+    matrix mat2{{-23}, {-13}, {16}};
 
     //A
 
-    auto out = MethodGauss(mat,vec);
+    auto out = MethodGauss(mat,mat2);
 
-    bool is = out == std::vector<double>{-2.0, 1.0, -1.0};
+
+    bool is = out == matrix{ {-2.0}, {1.0}, {-1.0}};
 
     //A
 
@@ -47,14 +47,14 @@ TEST(gauss, test_result2)
                   {3, -6, 0},
                   {1, 0, 6} };
 
-    std::vector <double> vec{ 15, -9, 5 };
+    matrix mat2{ {15}, {-9}, {5} };
 
 
     //A
 
-    auto out = MethodGauss(mat, vec);
+    auto out = MethodGauss(mat, mat2);
 
-    bool is = out == std::vector<double>{-7, -2, 2};
+    bool is = out == matrix{{-7}, {-2}, {2}};
 
     //A
 
@@ -69,14 +69,14 @@ TEST(gauss, test_result3)
     matrix mat = { {2, 3},
                    {4, 3} };
 
-    std::vector <double> vec{ 2, 7 };
+    matrix mat2{ {2}, {7} };
 
 
     //A
 
-    auto out = MethodGauss(mat, vec);
+    auto out = MethodGauss(mat, mat2);
 
-    bool is = out == std::vector<double>{2.5, -1};
+    bool is = out == matrix{{2.5}, {-1}};
 
     //A
 

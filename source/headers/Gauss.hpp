@@ -2,4 +2,4 @@
 
 #include "../headers/Matrix.hpp"
 
-std::vector<double> MethodGauss(matrix mat, std::vector<double> con);
+matrix MethodGauss(matrix mat, matrix con);

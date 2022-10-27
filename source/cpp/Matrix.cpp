@@ -112,7 +112,7 @@ void multiply_matrix_scalar(matrix& mat, int scalar) noexcept
 //5
 std::optional<matrix> multiply_matrix(const matrix& mat1, const  matrix& mat2) noexcept
 {
-    matrix mat_out(mat1.size(),std::vector<double>(mat1[0].size()));
+
 
     if (!is_matrix(mat1) || !is_matrix(mat2))
         return std::nullopt;
@@ -123,12 +123,14 @@ std::optional<matrix> multiply_matrix(const matrix& mat1, const  matrix& mat2) n
     if(mat1[0].size() != mat2.size())
         return std::nullopt;
 
+    matrix mat_out(mat1.size(),std::vector<double>(mat2[0].size()));
+    
     int out;
 
 
-    for (int i = 0; i < mat1.size(); i++)
+    for (int i = 0; i < mat_out.size(); i++)
     {
-        for (int z = 0; z < mat1[0].size(); z++)
+        for (int z = 0; z < mat_out[0].size(); z++)
         {
             out = 0;
             for (int j = 0; j < mat1[0].size(); j++)
