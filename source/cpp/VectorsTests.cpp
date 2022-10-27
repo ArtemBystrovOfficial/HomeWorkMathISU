@@ -74,16 +74,6 @@ TEST(isEqualOrientation, test_result)
     ASSERT_TRUE(out);
 }
 
-TEST(isUnEqualOrientation, test_result)
-{
-    //A
-    Vec a = { 1,1 }, b = { -1,-1 };
-    //A
-    auto out = isUnEqualOrientation(a, b);
-    //A
-    ASSERT_TRUE(out);
-}
-
 
 int main(int argc, char **argv)
 {
