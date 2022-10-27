@@ -10,10 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: init_submodule
+      run: git submodule update --init --recursive
     - uses: actions/checkout@v1
     - name: configure
       run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
-
     - name: make
       run: cd build && make
     - name: Run Test
