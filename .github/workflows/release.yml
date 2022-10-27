@@ -14,8 +14,15 @@ jobs:
       with:
         submodules: true
     - name: configure
-      run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
+      run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release ..
     - name: make
       run: cd build && make
-    - name: Run Test
+    - name: matrix_tests
       run: ./matrix_tests
+    - name: gauss_tests
+      run: ./gauss_tests 
+    - name: reverse_matrix_tests
+      run: ./reverse_matrix_tests
+    - name: vectors_tests
+      run: ./vectors_tests   
+    
