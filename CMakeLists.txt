@@ -27,6 +27,16 @@ add_executable(reverse_matrix_tests
                 ${PROJECT_CPP_SOURCE}/ReverseMatrixTests.cpp 
                 ${PROJECT_CPP_SOURCE}/ReverseMatrix.cpp)
 
+add_executable(interpolation_tests 
+                ${PROJECT_CPP_SOURCE}/Interpolation.cpp
+                ${PROJECT_CPP_SOURCE}/InterpolationTests.cpp
+                ${PROJECT_CPP_SOURCE}/Gauss.cpp
+                ${PROJECT_CPP_SOURCE}/Matrix.cpp)
+
+target_link_libraries( interpolation_tests PRIVATE 
+                    gtest gtest_main
+                    gmock gmock_main )
+
 target_link_libraries( vectors_tests PRIVATE
                     gtest gtest_main
                     gmock gmock_main )
