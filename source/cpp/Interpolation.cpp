@@ -35,25 +35,20 @@ matrix get_range(const matrix & mat) {
 }
 
 double get_y(double x,const std::vector<double> ranges, const matrix & kof) {
-
-    if(ranges.empty()) {
+    if(ranges.empty()) 
         return 0;
-    }
 
-    if(ranges.size()==1) {
+    if(ranges.size()==1) 
         return 0;
-    }
 
-    if(ranges.size()==2) {
+    if(ranges.size()==2) 
         return y_line(x,kof[0][0],kof[0][1]);
-    }
 
     if(x<=ranges[1])
         return y_line(x,kof[0][0],kof[0][1]);
 
-    if(x>=ranges[ranges.size()-2]) {
+    if(x>=ranges[ranges.size()-2]) 
         return y_line(x,kof[kof.size()-1][0],kof[kof.size()-1][1]);
-    }
 
     for(int i=1;i<ranges.size()-1;i++) {
         if(ranges[i]>=x && ranges[i+1]<=x) {
@@ -61,5 +56,34 @@ double get_y(double x,const std::vector<double> ranges, const matrix & kof) {
         }
     }
 }
+
+}
+
+namespace  lagrange {
+
+    double get_kof(const std::vector<double> & xes, double i, double x) {
+        int n = xes.size();
+        if(i<0 || i>=n)
+            return 0.0;
+
+        double k = 1;
+        for(int j=0;j<n;j++) 
+            if(i!=j) {
+                k *= (x-xes[j])/(xes[i]-xes[j]);
+            }
+        return k;
+    }
+
+    double get_y(double x,matrix & mat/*my bug about const, sorry*/) {
+        auto xes = get_column_matrix(mat,0);
+        auto yes = get_column_matrix(mat,1);
+
+        double out=0;
+
+        for(int i=0;i<mat.size();i++) {
+            out+= yes[i]*get_kof(xes,i,x);
+        }
+        return out;
+    }
 
 }

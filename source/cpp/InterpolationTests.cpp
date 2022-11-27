@@ -21,6 +21,10 @@ TEST(interpolation,test1) {
     }
 }
 
+TEST(lagrange,test1) {
+
+}
+
 int main(int argc, char **argv)
 {
     testing::InitGoogleTest(&argc,argv);

@@ -2,6 +2,13 @@
 
 #include "Matrix.hpp"
 
+namespace  lagrange {
+
+    double get_kof(const std::vector<double> & xes, double i, double x);
+    double get_y(double x,matrix & mat);
+    
+}
+
 namespace interpolation {
 
 matrix get_range(const matrix & matrix);

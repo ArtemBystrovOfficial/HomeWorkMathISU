@@ -85,7 +85,6 @@ bool is2 = opt.value() == matrix{ {3, 3, 7 },
                                   {15,67,9 } };
 
     //A
-
     ASSERT_EQ(is1, true);
     ASSERT_EQ(is2, false);
 
@@ -108,7 +107,6 @@ TEST(sum_matrix, test_fail2)
     bool is1 = opt.has_value();
 
     //A
-
     ASSERT_EQ(is1, false);
 
 }
@@ -132,7 +130,6 @@ TEST(substration_matrix, test_result)
                                       {-1, -1, 9 } };
 
     //A
-
     ASSERT_EQ( is1, true );
     ASSERT_EQ( is2, true );
 }
@@ -153,7 +150,6 @@ TEST(transport_matrix, test_result)
                              { 2, 5, 8 } };
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -173,7 +169,6 @@ TEST(multiply_matrix_scalar, test_result)
                              { 4, 10, 16 } };
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -199,7 +194,6 @@ TEST(multiply_matrix, test_result)
                               { 50, 68 } };
 
     //A
-
     ASSERT_EQ(is1, true);
     ASSERT_EQ(is2, true);
 
@@ -220,7 +214,6 @@ TEST(get_row_matrix, test_result)
     bool is = row == std::vector<double>{ 7, 2 };
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -240,7 +233,6 @@ TEST(get_column_matrix, test_result)
     bool is = row == std::vector<double>{ 1, 7, 5 };
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -262,7 +254,6 @@ TEST(replace_rows_matrix, test_result)
                              { 7, 2 } };
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -284,7 +275,6 @@ TEST(multiply_row_scalar, test_result)
                              { 5, 8 } };
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -308,7 +298,6 @@ TEST(sum_rows_scalar, test_result)
     bool is = vec == std::vector<double>{48, 16};
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
@@ -332,7 +321,6 @@ TEST(subtraction_rows_scalar, test_result)
     bool is = vec == std::vector<double>{8, 0};
 
     //A
-
     ASSERT_EQ(is, true);
 
 }
