@@ -33,6 +33,11 @@ add_executable(interpolation_tests
                 ${PROJECT_CPP_SOURCE}/Gauss.cpp
                 ${PROJECT_CPP_SOURCE}/Matrix.cpp)
 
+add_executable(macloren_tests
+                ${PROJECT_CPP_SOURCE}/Macloren.cpp
+                ${PROJECT_CPP_SOURCE}/MaclorenTests.cpp
+)
+
 target_link_libraries( interpolation_tests PRIVATE 
                     gtest gtest_main
                     gmock gmock_main )
@@ -52,3 +57,7 @@ target_link_libraries( matrix_tests PRIVATE
 target_link_libraries( gauss_tests PRIVATE
                     gtest gtest_main
                     gmock gmock_main )
+
+target_link_libraries( macloren_tests PRIVATE
+                    gtest gtest_main
+                    gmock gmock_main )                    
