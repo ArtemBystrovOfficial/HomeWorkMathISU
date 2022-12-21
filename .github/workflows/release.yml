@@ -25,4 +25,5 @@ jobs:
       run: cd build && ./reverse_matrix_tests
     - name: vectors_tests
       run: cd build && ./vectors_tests   
-    
+    - name: macloren_tests
+      run: cd build && ./macloren_tests 
